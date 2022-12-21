@@ -6,44 +6,44 @@
 #include <vector>
 #include <algorithm> 
 
-class phonestore {
+class Phonestore {
 
 public:
 
-    std::string  _name;
-    std::vector <phone> _phones;
+    std::string  name;
+    std::vector <phone> phones;
 
-    phonestore(std::string const& name) : _name(name) {};
+    Phonestore(std::string const& name) : name(name) {};
 
     std::string name() const {
-        return _name;
+        return name;
     }
 
-    phonestore& operator+= (phone const& new_phone)
+    Phonestore& operator+= (phone const& new_phone)
     {
-        _phones.push_back(new_phone);
+        phones.push_back(new_phone);
         return *this;
     }
 
     int count_books() const
     {
-        return _phones.size();
+        return phones.size();
     }
 
     void showTopByPrice() {
         std::cout << "TOP BY PRICE: \n";
 
-        std::sort(_phones.begin(), _phones.end(), by_Price());
+        std::sort(phones.begin(), phones.end(), By_Price());
 
         showBooks();
     }
 
     void showBooks() {
-        for (size_t i = 0; i < _phones.size(); i++)
-            std::cout << _phones[i] << ' ' << '\n';
+        for (size_t i = 0; i < phones.size(); i++)
+            std::cout << phones[i] << ' ' << '\n';
     }
 
-    struct by_Price {
+    struct By_Price {
         bool operator()(phone const& a, phone const& b) const {
             return a.price() > b.price();
         }
@@ -51,7 +51,7 @@ public:
 
    
 
-    struct compare
+    struct Compare
     {
         std::string key;
         compare(std::string& title) : key(title) {}
@@ -61,10 +61,10 @@ public:
         }
     };
 
-    friend std::ostream& operator<< (std::ostream& os, phonestore const& c)
+    friend std::ostream& operator<< (std::ostream& os, Phonestore const& c)
     {
-        for (size_t i = 0; i < c._phones.size(); i++)
-            os << c._phones[i] << ' ' << '\n';
+        for (size_t i = 0; i < c.phones.size(); i++)
+            os << c.phones[i] << ' ' << '\n';
         return os;
     }
 };
