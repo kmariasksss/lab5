@@ -10,7 +10,7 @@ class phone
     double price;
 
 public:
-    phone(std::string const& mark, std::string const& series, double const& price) :mark(mark), series(series), price(price) {};
+    Phone(std::string const& mark, std::string const& series, double const& price) :mark(mark), series(series), price(price) {};
 
     std::string mark() const
     {

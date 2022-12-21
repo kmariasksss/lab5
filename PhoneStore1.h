@@ -44,8 +44,8 @@ public:
     }
 
     struct By_Price {
-        bool operator()(phone const& a, phone const& b) const {
-            return a.price() > b.price();
+        bool operator()(phone const& phonee, phone const& pricee) const {
+            return phonee.price() > pricee.price();
         }
     };
 
@@ -56,15 +56,15 @@ public:
         std::string key;
         compare(std::string& title) : key(title) {}
 
-        bool operator()(phone const& b) {
-            return (b.mark() == key);
+        bool operator()(phone const& pricee) {
+            return (pricee.mark() == key);
         }
     };
 
-    friend std::ostream& operator<< (std::ostream& os, Phonestore const& c)
+    friend std::ostream& operator<< (std::ostream& os, Phonestore const& storee)
     {
-        for (size_t i = 0; i < c.phones.size(); i++)
-            os << c.phones[i] << ' ' << '\n';
+        for (size_t i = 0; i < storee.phones.size(); i++)
+            os << storee.phones[i] << ' ' << '\n';
         return os;
     }
 };
