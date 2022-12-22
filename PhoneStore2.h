@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 
-class phone
+class Phone
 {
     std::string mark;
     std::string series;
