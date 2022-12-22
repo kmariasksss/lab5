@@ -54,7 +54,7 @@ public:
     struct Compare
     {
         std::string key;
-        compare(std::string& title) : key(title) {}
+        Compare(std::string& title) : key(title) {}
 
         bool operator()(phone const& pricee) {
             return (pricee.mark() == key);
